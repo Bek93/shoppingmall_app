@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AnnyongStore</string>
+    <string name="login_btn_title">Login</string>
+    <string name="complete_btn_title">Complete</string>
+    <string name="onboarding_password">Your password</string>
+    <string name="onboarding_phone_number">Your phone number</string>
+    <string name="onboarding_password_confirm">Your confirm password</string>
+    <string name="onboarding_password_title">Password</string>
+    <string name="onboarding_email">Your email</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="onboarding_first_name">Your First Name</string>
+    <string name="onboarding_last_name">Your Last Name</string>
+    <string name="onboarding_address">Your address</string>
+    <string name="post_code_title">Get Post Code</string>
+    <string name="onboarding_post_code">Postcode</string>
+    <string name="onboarding_address_details">101호</string>
+</resources>
