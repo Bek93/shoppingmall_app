@@ -1,5 +1,6 @@
 package com.beknumonov.shoppingmall_app.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.beknumonov.shoppingmall_app.activity.ProductListActivity;
 import com.beknumonov.shoppingmall_app.adapter.ClassificationAdapter;
 import com.beknumonov.shoppingmall_app.base.BaseAdapterListener;
 import com.beknumonov.shoppingmall_app.base.BaseFragment;
@@ -46,7 +48,7 @@ public class ProductsFragment extends BaseFragment<FragmentProductsBinding> {
         adapter.setListener(new BaseAdapterListener() {
 
             @Override
-            public void onCategoryClick(int id, ClassificationAdapter.Type type) {
+            public void onCategoryClick(int id, String title, ClassificationAdapter.Type type) {
                 if (type == ClassificationAdapter.Type.CLASSIFICATION) {
                     binding.tvBackBtn.setVisibility(View.VISIBLE);
                     binding.line.setVisibility(View.VISIBLE);
@@ -57,6 +59,11 @@ public class ProductsFragment extends BaseFragment<FragmentProductsBinding> {
                     binding.line.setVisibility(View.VISIBLE);
                     binding.tvBackBtn.setText("Category");
                     loadSubproduct(id);
+                } else if (type == ClassificationAdapter.Type.SUBPRODUCT) {
+                    Intent intent = new Intent(getContext(), ProductListActivity.class);
+                    intent.putExtra("id", id);
+                    intent.putExtra("title", title);
+                    startActivity(intent);
                 }
             }
         });
@@ -76,7 +83,7 @@ public class ProductsFragment extends BaseFragment<FragmentProductsBinding> {
                 ClassificationAdapter.Type type = adapter.moveBack();
                 if (type == ClassificationAdapter.Type.CATEGORY) {
                     binding.tvBackBtn.setText("Classification");
-                } else if (type == ClassificationAdapter.Type.CLASSIFICATION){
+                } else if (type == ClassificationAdapter.Type.CLASSIFICATION) {
                     binding.tvBackBtn.setVisibility(View.GONE);
                     binding.line.setVisibility(View.GONE);
                 }

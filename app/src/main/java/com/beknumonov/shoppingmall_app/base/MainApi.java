@@ -51,4 +51,12 @@ public interface MainApi {
 
     @GET("/v1/popular/")
     Call<ArrayList<Product>> getPopularProducts();
+
+    // Products
+
+    @GET("/v1/subproduct/{id}/products/")
+    Call<ArrayList<Product>> getProducts(@Path("id") int subproductId);
+
+    @GET("/v1/product/{id}/")
+    Call<Product> getProductDetails(@Path("id") int productId);
 }

@@ -1,10 +1,13 @@
 package com.beknumonov.shoppingmall_app.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.beknumonov.shoppingmall_app.activity.ProductDetailsActivity;
 import com.beknumonov.shoppingmall_app.base.BaseAdapter;
 import com.beknumonov.shoppingmall_app.base.BaseViewHolder;
 import com.beknumonov.shoppingmall_app.databinding.ItemProductBinding;
@@ -52,12 +55,21 @@ public class ProductListAdapter extends BaseAdapter {
 
             binding.productName.setText(product.getTitle());
             binding.productBrand.setText(product.getBrand());
-            binding.productPriceCurrent.setText("$" + product.getPriceCurrent());
-            binding.productPriceOriginal.setText("$" + product.getPriceOriginal());
+            binding.productPriceCurrent.setText(product.getPriceCurrent());
+            binding.productPriceOriginal.setText(product.getPriceOriginal());
 
             if (product.getImage() != null && product.getImage().getImage() != null)
                 Glide.with(binding.productImage).load(product.getImage().getImage()).into(binding.productImage);
 
+
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(binding.getRoot().getContext(), ProductDetailsActivity.class);
+                    intent.putExtra("product", product);
+                    binding.getRoot().getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

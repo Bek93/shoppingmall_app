@@ -14,9 +14,12 @@ import java.util.ArrayList;
 
 public class IndicatorAdapter extends BaseAdapter {
 
-    private ArrayList<Banner> bannerArrayList;
+    private int size;
     private int selectedDotPosition = 0;
 
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public int getSelectedDotPosition() {
         return selectedDotPosition;
@@ -26,8 +29,8 @@ public class IndicatorAdapter extends BaseAdapter {
         this.selectedDotPosition = selectedDotPosition;
     }
 
-    public IndicatorAdapter(ArrayList<Banner> bannerArrayList) {
-        this.bannerArrayList = bannerArrayList;
+    public IndicatorAdapter(int size) {
+        this.size = size;
     }
 
     @NonNull
@@ -44,7 +47,7 @@ public class IndicatorAdapter extends BaseAdapter {
 
     @Override
     public int getItemCount() {
-        return bannerArrayList.size();
+        return size;
     }
 
     class DotViewHolder extends BaseViewHolder<ItemDotBinding> {

@@ -4,7 +4,11 @@ package com.beknumonov.shoppingmall_app.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Product {
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+public class Product implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -36,6 +40,10 @@ public class Product {
     @SerializedName("image")
     @Expose
     private ProductImage image;
+
+    @SerializedName("images")
+    @Expose
+    private ArrayList<ProductImage> images;
     @SerializedName("is_active")
     @Expose
     private boolean isActive;
@@ -48,13 +56,11 @@ public class Product {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public Product() {
     }
 
     /**
-     * 
      * @param image
      * @param quantity
      * @param infinite
@@ -84,6 +90,14 @@ public class Product {
         this.isActive = isActive;
         this.brand = brand;
         this.madeIn = madeIn;
+    }
+
+    public ArrayList<ProductImage> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<ProductImage> images) {
+        this.images = images;
     }
 
     public int getId() {
@@ -118,16 +132,19 @@ public class Product {
         this.subproduct = subproduct;
     }
 
-    public int getPriceCurrent() {
-        return priceCurrent;
+    public String getPriceCurrent() {
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        return decimalFormat.format(priceCurrent) + "₩";
     }
 
     public void setPriceCurrent(int priceCurrent) {
         this.priceCurrent = priceCurrent;
     }
 
-    public int getPriceOriginal() {
-        return priceOriginal;
+    public String getPriceOriginal() {
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+
+        return decimalFormat.format(priceOriginal) + "₩";
     }
 
     public void setPriceOriginal(int priceOriginal) {

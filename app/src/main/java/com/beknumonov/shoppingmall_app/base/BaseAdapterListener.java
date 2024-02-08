@@ -4,5 +4,5 @@ import com.beknumonov.shoppingmall_app.adapter.ClassificationAdapter;
 
 public interface BaseAdapterListener {
 
-    void onCategoryClick(int id, ClassificationAdapter.Type type);
+    void onCategoryClick(int id, String title, ClassificationAdapter.Type type);
 }

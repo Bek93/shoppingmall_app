@@ -52,7 +52,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         bannerArrayList = new ArrayList<>();
         productArrayList = new ArrayList<>();
         bannerViewPagerAdapter = new BannerViewPagerAdapter(getActivity(), bannerArrayList);
-        indicatorAdapter = new IndicatorAdapter(bannerArrayList);
+        indicatorAdapter = new IndicatorAdapter(bannerArrayList.size());
         productListAdapter = new ProductListAdapter(productArrayList);
 
         loadBanners();
@@ -94,6 +94,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
                 if (response.isSuccessful() && response.code() == 200) {
                     bannerArrayList.addAll(response.body());
                     bannerViewPagerAdapter.notifyDataSetChanged();
+                    indicatorAdapter.setSize(bannerArrayList.size());
                     indicatorAdapter.notifyDataSetChanged();
                 }
             }

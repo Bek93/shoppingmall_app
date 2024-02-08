@@ -1,7 +1,9 @@
 package com.beknumonov.shoppingmall_app.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -39,6 +41,24 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+
+        if (hasBackButton()) {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+            }
+
+        }
+    }
+
+
+    protected boolean hasBackButton() {
+        return false;
     }
 
     protected void setTitle(String title) {

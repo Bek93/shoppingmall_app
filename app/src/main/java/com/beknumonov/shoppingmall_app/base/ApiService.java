@@ -98,6 +98,7 @@ public class ApiService {
                     preferenceManager.setValue("access_token", user.getAccessToken());
                     requestBuilder.removeHeader("Authorization");
                     requestBuilder.addHeader("Authorization", "Bearer " + user.getAccessToken());
+                    response.close();
                     Request request = requestBuilder.build();
                     return chain.proceed(request);
                 }

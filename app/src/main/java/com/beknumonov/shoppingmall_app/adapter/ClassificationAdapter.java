@@ -103,7 +103,8 @@ public class ClassificationAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     if (listener != null) {
                         int id = type == Type.CLASSIFICATION ? classificationArrayList.get(position).getId() : (type == Type.CATEGORY ? categoryArrayList.get(position).getId() : subproductArrayList.get(position).getId());
-                        listener.onCategoryClick(id, type);
+                        String title = type == Type.SUBPRODUCT ? subproductArrayList.get(position).getTitle() : "";
+                        listener.onCategoryClick(id, title, type);
                     }
                 }
             });
