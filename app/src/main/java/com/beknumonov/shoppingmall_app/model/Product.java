@@ -44,6 +44,19 @@ public class Product implements Serializable {
     @SerializedName("images")
     @Expose
     private ArrayList<ProductImage> images;
+
+    @SerializedName("color_options")
+    @Expose
+    private ArrayList<ColorOption> colorOptions;
+
+    @SerializedName("size_options")
+    @Expose
+    private ArrayList<SizeOption> sizeOptions;
+
+
+    @SerializedName("options")
+    @Expose
+    private ArrayList<Option> options;
     @SerializedName("is_active")
     @Expose
     private boolean isActive;
@@ -92,6 +105,22 @@ public class Product implements Serializable {
         this.madeIn = madeIn;
     }
 
+    public ArrayList<ColorOption> getColorOptions() {
+        return colorOptions;
+    }
+
+    public void setColorOptions(ArrayList<ColorOption> colorOptions) {
+        this.colorOptions = colorOptions;
+    }
+
+    public ArrayList<SizeOption> getSizeOptions() {
+        return sizeOptions;
+    }
+
+    public void setSizeOptions(ArrayList<SizeOption> sizeOptions) {
+        this.sizeOptions = sizeOptions;
+    }
+
     public ArrayList<ProductImage> getImages() {
         return images;
     }
@@ -120,6 +149,14 @@ public class Product implements Serializable {
         return description;
     }
 
+    public ArrayList<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(ArrayList<Option> options) {
+        this.options = options;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -135,6 +172,17 @@ public class Product implements Serializable {
     public String getPriceCurrent() {
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         return decimalFormat.format(priceCurrent) + "₩";
+    }
+
+    public int getPriceCurrentAsInt() {
+        return priceCurrent;
+    }
+
+    public String getProductTotalPrice(int quantity) {
+        int total = quantity * priceCurrent;
+
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        return decimalFormat.format(total) + "₩";
     }
 
     public void setPriceCurrent(int priceCurrent) {

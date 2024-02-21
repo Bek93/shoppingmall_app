@@ -1,8 +1,12 @@
 package com.beknumonov.shoppingmall_app.base;
 
 import com.beknumonov.shoppingmall_app.model.Banner;
+import com.beknumonov.shoppingmall_app.model.Cart;
+import com.beknumonov.shoppingmall_app.model.CartRequest;
 import com.beknumonov.shoppingmall_app.model.Category;
 import com.beknumonov.shoppingmall_app.model.Classification;
+import com.beknumonov.shoppingmall_app.model.Order;
+import com.beknumonov.shoppingmall_app.model.PreOrder;
 import com.beknumonov.shoppingmall_app.model.Product;
 import com.beknumonov.shoppingmall_app.model.ProductList;
 import com.beknumonov.shoppingmall_app.model.Subproduct;
@@ -59,4 +63,14 @@ public interface MainApi {
 
     @GET("/v1/product/{id}/")
     Call<Product> getProductDetails(@Path("id") int productId);
+
+
+    @POST("/v1/cart/")
+    Call<CartRequest> addProductToCart(@Body CartRequest cartRequest);
+
+    @GET("/v1/cart/")
+    Call<ArrayList<Cart>> getMyCart();
+
+    @POST("/v1/cart/order/")
+    Call<Order> orderCarts(@Body PreOrder preOrder);
 }

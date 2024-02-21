@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 
 import com.beknumonov.shoppingmall_app.R;
+import com.beknumonov.shoppingmall_app.activity.ProductDetailsActivity;
 
 public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActivity {
 
@@ -66,6 +68,11 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
         if (tvPageTitle != null) {
             tvPageTitle.setText(title);
         }
+    }
+
+
+    public void showToast(String message) {
+        Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
     }
 
 

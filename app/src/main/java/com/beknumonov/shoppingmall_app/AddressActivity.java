@@ -23,14 +23,10 @@ public class AddressActivity extends BaseActivity<ActivityAddressBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         binding.webView.getSettings().setJavaScriptEnabled(true);
         binding.webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        binding.webView.loadUrl("http://address.shoppingmall.beknumonov.com/");
+        binding.webView.loadUrl("http://address.annyong.store/");
         binding.webView.addJavascriptInterface(new WebAppInterface(), "CallbackWebInterface");
-
-
     }
 
 
