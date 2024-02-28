@@ -138,7 +138,7 @@ public class CartFragment extends BaseFragment<FragmentCartBinding> {
                         Order order = response.body();
 
                         Intent intent = new Intent(getContext(), OrderDetailsActivity.class);
-                        intent.putExtra("order", order);
+                        intent.putExtra("order", order.getId());
                         startActivity(intent);
 
                     }

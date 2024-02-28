@@ -14,17 +14,24 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.beknumonov.shoppingmall_app.base.BaseActivity;
 import com.beknumonov.shoppingmall_app.databinding.ActivityRegisterBinding;
 import com.beknumonov.shoppingmall_app.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
+
+    private String deviceToken;
+
     @Override
     protected ActivityRegisterBinding inflateViewBinding(LayoutInflater inflater) {
         return ActivityRegisterBinding.inflate(inflater);
@@ -34,6 +41,15 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    deviceToken = task.getResult();
+                }
+            }
+        });
 
         /*Typing email and check real time if email is valid or not*/
         binding.etEmail.addTextChangedListener(new TextWatcher() {
@@ -194,6 +210,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
 
                 String full_address = "[" + postCode + "] " + address + ", " + addressDetails;
                 User user = new User(email, password, firstName, lastName, phoneNumber, full_address);
+                user.setDeviceToken(deviceToken);
                 Call<User> call = mainApi.createUser(user);
 
                 call.enqueue(new Callback<User>() {

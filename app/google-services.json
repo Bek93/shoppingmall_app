@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700448475100",
+    "project_id": "shoppingapp-70b9f",
+    "storage_bucket": "shoppingapp-70b9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700448475100:android:45deddf7b971b47b5b3119",
+        "android_client_info": {
+          "package_name": "com.beknumonov.shoppingmall_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAkKEnfbTzL22yKJWx0GZZiTF2W57rK9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

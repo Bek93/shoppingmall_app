@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 
 import androidx.annotation.Nullable;
 
+import com.beknumonov.shoppingmall_app.activity.OrderDetailsActivity;
 import com.beknumonov.shoppingmall_app.base.BaseActivity;
 import com.beknumonov.shoppingmall_app.databinding.ActivitySplashBinding;
 

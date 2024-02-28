@@ -19,6 +19,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -31,6 +32,9 @@ public interface MainApi {
 
     @POST("/v1/user/")
     Call<User> createUser(@Body User user);
+
+    @PUT("/v1/user/{id}/")
+    Call<User> updateUser(@Path("id") int userId, @Body JsonObject body);
 
     @GET("/v1/user/verify_email/")
     Call<JsonObject> requestVerifyEmail(@Query("email") String email);
@@ -73,4 +77,8 @@ public interface MainApi {
 
     @POST("/v1/cart/order/")
     Call<Order> orderCarts(@Body PreOrder preOrder);
+
+
+    @GET("/v1/order/{id}/")
+    Call<Order> getOrder(@Path("id") int id);
 }

@@ -13,11 +13,27 @@ public class Order implements Serializable {
     @SerializedName("order_number")
     private String orderNumber;
 
+    @SerializedName("status")
+    private String orderStatus;
+
+
+
+    @SerializedName("total_current_price")
+    private Integer totalCurrentPrice;
+
+
+    @SerializedName("total_original_price")
+    private Integer totalOriginalPrice;
+
+
+    @SerializedName("payment")
+    private String payment;
+
+
+
 
     @SerializedName("products")
     private ArrayList<OrderedProduct> products;
-
-
 
 
     @SerializedName("name")
@@ -80,6 +96,38 @@ public class Order implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public Integer getTotalCurrentPrice() {
+        return totalCurrentPrice;
+    }
+
+    public void setTotalCurrentPrice(Integer totalCurrentPrice) {
+        this.totalCurrentPrice = totalCurrentPrice;
+    }
+
+    public Integer getTotalOriginalPrice() {
+        return totalOriginalPrice;
+    }
+
+    public void setTotalOriginalPrice(Integer totalOriginalPrice) {
+        this.totalOriginalPrice = totalOriginalPrice;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
     @Override

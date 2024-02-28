@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -41,6 +43,274 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/detailPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Order number"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Order status"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Payment"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Total price"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Name"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Phone number"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:text="Address"
+                android:textColor="#b0afaf"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/tvOrderedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="end"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="1sp"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:text="2024-02-20-8" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orderProductRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailPanel"
+        app:layout_constraintVertical_bias="1.0"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_ordered_product" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
