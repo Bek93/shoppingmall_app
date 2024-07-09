@@ -15,6 +15,8 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -30,11 +32,17 @@ public interface MainApi {
     @POST("/v1/login/")
     Call<User> login(@Body User user);
 
+    @POST("/v1/login/")
+    Single<User> loginWithRx(@Body User user);
+
     @POST("/v1/user/")
     Call<User> createUser(@Body User user);
 
     @PUT("/v1/user/{id}/")
     Call<User> updateUser(@Path("id") int userId, @Body JsonObject body);
+
+    @PUT("/v1/user/{id}/")
+    Completable updateUserWithRxJava(@Path("id") int userId, @Body JsonObject body);
 
     @GET("/v1/user/verify_email/")
     Call<JsonObject> requestVerifyEmail(@Query("email") String email);

@@ -21,6 +21,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.JsonObject;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -141,7 +146,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                     return;
 
 
-                Call<User> call = mainApi.login(new User(email, password));
+                /*Call<User> call = mainApi.login(new User(email, password));
 
                 call.enqueue(new Callback<User>() {
                     @Override
@@ -162,8 +167,31 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                     public void onFailure(Call<User> call, Throwable t) {
 
                     }
-                });
+                });*/
 
+                Single<User> single = mainApi.loginWithRx(new User(email, password));
+                single.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread()).subscribe(new SingleObserver<User>() {
+                            @Override
+                            public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+
+                            }
+
+                            @Override
+                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull User user) {
+                                preferenceManager.setValue("isLoggedIn", true);
+                                preferenceManager.setValue("email", email);
+                                preferenceManager.setValue("password", password);
+                                preferenceManager.setValue("access_token", user.getAccessToken());
+                                preferenceManager.setValue("user", user);
+                                updateDeviceToken(user);
+                            }
+
+                            @Override
+                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+
+                            }
+                        });
 
             }
         });
